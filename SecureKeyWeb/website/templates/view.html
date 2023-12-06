@@ -1,0 +1,32 @@
+{% extends "base.html" %} 
+{% block title %}View{% endblock %} 
+{% block content %}
+    <h1 align="center">View User Credentials</h1>
+
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">User Login</th>
+                <th scope="col">User Password</th>
+                <th scope="col">URL Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for credential in user.user_credentials %}
+                <tr>
+                    <td>{{ credential.user_login }}</td>
+                    <td>{{ credential.User_password }}</td>
+                    <td>{{ credential.url_link }}</td>
+                    <td>
+                    <button type="button" class="close" onClick="deleteNote({{ credential.id }})">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </td>
+              
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br />
+{% endblock %}
